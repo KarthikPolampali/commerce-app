@@ -6,6 +6,7 @@ import Products from "./Products";
 import { Route,Routes } from "react-router-dom";
 import Cart from "./Cart";
 import Detail from "./Detail";
+import Checkout from "./Checkout";
 
 export default function App() {
   
@@ -36,6 +37,9 @@ export default function App() {
       : items.map((i)=>i.sku===sku ? {...i,quantity}:i)
     })
   }
+  function emptyCart(){
+    setCart([]);
+  }
   return (
     <>
       <div className="content">
@@ -46,6 +50,7 @@ export default function App() {
             <Route path="/:category" element={<Products/>}/>
             <Route path="/:category/:id" element={<Detail addToCart={addToCart} />}/>
             <Route path="/cart" element={<Cart cart={cart} updateQuantity={updateQuantity}/>}/>
+            <Route path="/checkout" element={<Checkout cart={cart} emptyCart={emptyCart}/>} />
           </Routes>
         </main>
       </div>

@@ -7,7 +7,7 @@ export async function getShippingAddress(userId) {
   });
 }
 
-export async function saveShippingAddress(address) {
+export default async function saveShippingAddress(address) {
   return fetch(baseUrl + "shippingAddress", {
     method: "POST",
     headers: {
