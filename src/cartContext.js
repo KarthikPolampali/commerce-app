@@ -16,7 +16,7 @@ export function CartProvider(props){
     useEffect(()=>localStorage.setItem("cart",JSON.stringify(cart)),[cart]);
     const contextValue = {
         cart,
-        dispatch
+        dispatch,
     }
   return (
   <CartContext.Provider value={contextValue}>{props.children}</CartContext.Provider>
